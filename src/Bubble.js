@@ -129,29 +129,31 @@ export default class Bubble extends React.PureComponent {
 
   render() {
     return (
-      <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
-        <View
-          style={[
-            styles[this.props.position].wrapper,
-            this.props.wrapperStyle[this.props.position],
-            this.handleBubbleToNext(),
-            this.handleBubbleToPrevious(),
-          ]}
-        >
-          <TouchableWithoutFeedback
-            onLongPress={this.onLongPress}
-            accessibilityTraits="text"
-            {...this.props.touchableProps}
+      <View>
+        <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
+          <View
+            style={[
+              styles[this.props.position].wrapper,
+              this.props.wrapperStyle[this.props.position],
+              this.handleBubbleToNext(),
+              this.handleBubbleToPrevious(),
+            ]}
           >
-            <View>
-              {this.renderCustomView()}
-              {this.renderMessageImage()}
-              {this.renderMessageText()}
-              <View style={[styles.bottom, this.props.bottomContainerStyle[this.props.position]]}>
-                {this.renderTicks()}
+            <TouchableWithoutFeedback
+              onLongPress={this.onLongPress}
+              accessibilityTraits="text"
+              {...this.props.touchableProps}
+            >
+              <View>
+                {this.renderCustomView()}
+                {this.renderMessageImage()}
+                {this.renderMessageText()}
+                <View style={[styles.bottom, this.props.bottomContainerStyle[this.props.position]]}>
+                  {this.renderTicks()}
+                </View>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback>
+          </View>
         </View>
         {this.renderTime()}
       </View>
